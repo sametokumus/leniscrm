@@ -25,14 +25,14 @@
                     <img src="/img/logo/x-logo-dark.png" alt="logo" class="w-100">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Email Address <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control form-control-lg bg-white bg-opacity-5" value="" placeholder=""id="login_email" />
+                    <label class="form-label">{{__('Email Address')}} <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control form-control-lg bg-white bg-opacity-5" value="" placeholder="" id="login_email" />
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Password <span class="text-danger">*</span></label>
+                    <label class="form-label">{{__('Password')}} <span class="text-danger">*</span></label>
                     <input type="password" class="form-control form-control-lg bg-white bg-opacity-5" value="" placeholder="" id="login_password" />
                 </div>
-                <button type="submit" class="btn btn-outline-theme btn-lg d-block w-100 fw-500 mb-3">Giriş</button>
+                <button type="submit" class="btn btn-outline-theme btn-lg d-block w-100 fw-500 mb-3">{{__('Giriş')}}</button>
 
             </form>
         </div>
