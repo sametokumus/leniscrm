@@ -32,7 +32,7 @@
                     <label class="form-label">{{__('Password')}} <span class="text-danger">*</span></label>
                     <input type="password" class="form-control form-control-lg bg-white bg-opacity-5" value="" placeholder="" id="login_password" />
                 </div>
-                <button type="submit" class="btn btn-outline-theme btn-lg d-block w-100 fw-500 mb-3">{{__('Giriş')}}</button>
+                <button type="submit" class="btn btn-outline-theme btn-lg d-block w-100 fw-500 mb-3">{{__('Sign In')}}</button>
 
             </form>
         </div>
