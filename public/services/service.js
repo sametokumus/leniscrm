@@ -160,24 +160,32 @@ function triggerPipeman2(){
 }
 
 function triggerPipeman3(){
-    var imageMain = document.getElementById("pipeman-container");
+    // var imageMain = document.getElementById("pipeman-container");
+    // var imageContainer = document.getElementById("pipeman-image");
+    // imageMain.style.marginBottom = "0px";
+    // imageMain.style.marginRight = "0px";
+    // imageContainer.src = "/gifs/YerdekiKapakA.gif";
+    // $('.pipeman-container').css('width', '300px').css('height', '300px');
+    // // $('.pipeman-image').css('display', 'block');
+    // window.setTimeout(function() {
+    //     imageContainer.style.transition = "none";
+    //     imageContainer.style.transform = "scale(.7)";
+    //     imageMain.style.marginBottom = "40px";
+    //     imageMain.style.marginRight = "30px";
+    //     imageContainer.src = "/gifs/KafaKasimaA.gif";
+    // }, 1400);
+    // imageContainer.style.transform = "scale(1)";
+    // window.setTimeout(function() {
+    //     imageContainer.style.transform = "scale(0)";
+    // }, 60000);
     var imageContainer = document.getElementById("pipeman-image");
-    imageMain.style.marginBottom = "0px";
-    imageMain.style.marginRight = "0px";
     imageContainer.src = "/gifs/YerdekiKapakA.gif";
     $('.pipeman-container').css('width', '300px').css('height', '300px');
     // $('.pipeman-image').css('display', 'block');
-    window.setTimeout(function() {
-        imageContainer.style.transition = "none";
-        imageContainer.style.transform = "scale(.7)";
-        imageMain.style.marginBottom = "40px";
-        imageMain.style.marginRight = "30px";
-        imageContainer.src = "/gifs/KafaKasimaA.gif";
-    }, 1400);
     imageContainer.style.transform = "scale(1)";
     window.setTimeout(function() {
         imageContainer.style.transform = "scale(0)";
-    }, 60000);
+    }, 5000);
 }
 
 function showAlert(message){
