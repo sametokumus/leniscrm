@@ -91,10 +91,13 @@ $extra_js="";
 
             </div>
             <div class="menu-item mx-1">
-                <button class="btn btn-theme btn-sm" type="button" onclick="triggerPipeman();"><span>Animasyon</span></button>
+                <button class="btn btn-theme btn-sm" type="button" onclick="triggerPipeman();"><span>Animasyon v1</span></button>
             </div>
             <div class="menu-item mx-1">
-                <button class="btn btn-theme btn-sm" type="button" onclick="triggerPipeman2();"><span>Animasyon 2</span></button>
+                <button class="btn btn-theme btn-sm" type="button" onclick="triggerPipeman2();"><span>Animasyon v2</span></button>
+            </div>
+            <div class="menu-item mx-1">
+                <button class="btn btn-theme btn-sm" type="button" onclick="triggerPipeman3();"><span>Animasyon v3</span></button>
             </div>
             <div class="menu-item">
                 <a href="/my-dashboard" id="header-notify" data-bs-display="static" class="menu-link">
