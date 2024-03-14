@@ -29,7 +29,7 @@ $extra_js='
                                 <div class="row p-3">
 
                                     <div class="col-md-12 mb-3">
-                                        <label class="form-label">Profil fotoğrafını <a href="#" id="update_admin_current_profile_photo" target="_blank">'görüntülemek için tıklayınız...</a></label>
+                                        <label class="form-label">Profil fotoğrafını <a href="#" id="update_admin_current_profile_photo" target="_blank">görüntülemek için tıklayınız...</a></label>
                                         <input type="file" class="form-control" id="update_admin_profile_photo" />
                                     </div>
 

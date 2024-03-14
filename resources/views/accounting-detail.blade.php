@@ -276,7 +276,7 @@ $(".timepicker").timepicker({
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Ödeme Tutarı :</label>
+                            <label class="col-md-3 form-label">Ödenecek Tutarı :</label>
                             <div class="col-md-9">
                                 <input type="hidden" class="form-control" id="add_payment_packing_list_id">
                                 <input type="text" class="form-control" id="add_payment_payment_price" readonly>
@@ -426,7 +426,7 @@ $(".timepicker").timepicker({
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Ödeme Tutarı :</label>
+                            <label class="col-md-3 form-label">Ödenecek Tutar :</label>
                             <div class="col-md-9">
                                 <input type="hidden" class="form-control" id="update_payment_packing_list_id">
                                 <input type="text" class="form-control" id="update_payment_payment_price" readonly>

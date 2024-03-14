@@ -81,7 +81,7 @@ $extra_js="";
 
         <div class="brand">
             <a href="/my-dashboard" class="brand-logo">
-                <img src="/img/logo/x-logo-bordered.png" class="img-responsive brand-img">
+                <img src="/img/logo/semy-logo.png" class="img-responsive brand-img">
             </a>
         </div>
 
@@ -113,7 +113,7 @@ $extra_js="";
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end me-lg-3 fs-11px mt-1">
-                    <a class="dropdown-item d-flex align-items-center" href="/my-dashboard">Profilim <i
+                    <a class="dropdown-item d-flex align-items-center" href="/my-dashboard">{{__('My Profile')}} <i
                             class="bi bi-people ms-auto text-theme fs-16px my-n1"></i></a>
 {{--                    <a class="dropdown-item d-flex align-items-center" href="#">INBOX <i--}}
 {{--                            class="bi bi-envelope ms-auto text-theme fs-16px my-n1"></i></a>--}}
@@ -122,7 +122,7 @@ $extra_js="";
 {{--                    <a class="dropdown-item d-flex align-items-center" href="#">SETTINGS <i--}}
 {{--                            class="bi bi-gear ms-auto text-theme fs-16px my-n1"></i></a>--}}
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item d-flex align-items-center navbar-logout" href="#">Çıkış <i
+                    <a class="dropdown-item d-flex align-items-center navbar-logout" href="#">{{__('Logout')}} <i
                             class="bi bi-toggle-off ms-auto text-theme fs-16px my-n1"></i></a>
                 </div>
             </div>
@@ -145,23 +145,23 @@ $extra_js="";
                 </div>
                 @endif
 
-                <div class="menu-header">Haber Kaynağı</div>
+                <div class="menu-header">{{__('News Feed')}}</div>
                 <div id="nav-my-dashboard" class="menu-item @if( Request::segment(1)== 'my-dashboard' ) active @endif">
                     <a href="/my-dashboard" class="menu-link">
                         <span class="menu-icon"><i class="bi bi-person-fill"></i></span>
-                        <span class="menu-text">Profilim</span>
+                        <span class="menu-text">{{__('My Profile')}}</span>
                     </a>
                 </div>
                 <div id="nav-dashboard" class="d-none menu-item @if( Request::segment(1)== 'dashboard' ) active @endif">
                     <a href="/dashboard" class="menu-link">
                         <span class="menu-icon"><i class="bi bi-bar-chart-fill"></i></span>
-                        <span class="menu-text">Dashboard</span>
+                        <span class="menu-text">{{__('Dashboard')}}</span>
                     </a>
                 </div>
                 <div id="nav-staff-dashboard" class="d-none menu-item @if( Request::segment(1)== 'staff-dashboard' ) active @endif">
                     <a href="/staff-dashboard" class="menu-link">
                         <span class="menu-icon"><i class="bi bi-people-fill"></i></span>
-                        <span class="menu-text">Personel Profilleri</span>
+                        <span class="menu-text">{{__('Staff Profiles')}}</span>
                     </a>
                 </div>
 {{--                <div id="nav-news-feed" class="d-none menu-item @if( Request::segment(1)== 'news-feed' ) active @endif">--}}
@@ -170,7 +170,7 @@ $extra_js="";
 {{--                        <span class="menu-text">Haber Kaynağı</span>--}}
 {{--                    </a>--}}
 {{--                </div>--}}
-                <div class="menu-header">Satış Yönetimi</div>
+                <div class="menu-header">{{__('Sale Management')}}</div>
                 <div id="nav-new-request" class="d-none menu-item @if( Request::segment(1)== 'offer-request' ) active @endif">
                     <a href="/new-offer-request" class="menu-link">
                         <span class="menu-icon"><i class="bi bi-gem"></i></span>

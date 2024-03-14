@@ -24,7 +24,7 @@ $extra_js='
                 <thead>
                 <tr>
                     <th class="border-bottom-0" data-priority="1">ID</th>
-                    <th class="border-bottom-0">İstek Numarası</th>
+                    <th class="border-bottom-0">Talep Numarası</th>
                     <th class="border-bottom-0">Yetkili Satış Temsilcisi</th>
                     <th class="border-bottom-0">Firma</th>
                     <th class="border-bottom-0">Firma Yetkilisi</th>

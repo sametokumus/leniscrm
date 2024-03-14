@@ -85,7 +85,7 @@ $extra_js='
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Hedef Güncelle</h5>
+                <h5 class="modal-title">E-Posta Şablonu Güncelle</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <form method="post" action="#" id="update_layout_form">

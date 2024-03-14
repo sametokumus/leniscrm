@@ -90,7 +90,7 @@ $extra_js='
                                         Fatura Detayları
                                     </h5>
                                     <div class="col-sm-12 mb-3">
-                                        <label class="form-label">Shipping Price</label>
+                                        <label class="form-label">Kargo Bedeli</label>
                                         <input type="text" class="form-control" id="update_sale_shipping_price">
                                     </div>
                                     <div class="col-sm-12">
