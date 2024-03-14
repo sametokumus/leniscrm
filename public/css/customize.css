@@ -12,7 +12,7 @@ linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.99) 1
     margin-top: 10px;
 }
 .app-header .menu-toggler{
-    margin-top: 15px;
+    margin-top: 5px;
 }
 .app-header .menu-toggler .bar{
     background: #fff;
