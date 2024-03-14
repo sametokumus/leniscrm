@@ -936,4 +936,6 @@ table.dataTable{
     transform: scale(0);
     transition: transform .3s ease-in-out;
     transform-origin: right bottom;
+    width: 300px;
+    height: 300px;
 }
