@@ -219,6 +219,14 @@ class SaleController extends Controller
                 ->get();
 
             foreach ($sales as $sale) {
+
+                $status_role = AdminStatusRole::query()->where('admin_role_id', $admin->admin_role_id)->where('status_id', $sale->status_id)->where('active', 1)->count();
+                if ($status_role > 0){
+                    $sale['authorization'] = 1;
+                }else{
+                    $sale['authorization'] = 0;
+                }
+
                 $sale['sale_notes'] = SaleNote::query()->where('sale_id', $sale->sale_id)->get();
 
                 $offer_request = OfferRequest::query()->where('request_id', $sale->request_id)->where('active', 1)->first();
@@ -241,14 +249,15 @@ class SaleController extends Controller
                     $updated_at = $sale->updated_at;
 //                    $updated_at = Carbon::parse($sale->updated_at);
 //                    $updated_at = $updated_at->subHours(3);
+//                    $sale->updated_at = $sale->updated_at->addHours(3);
                 }else{
-                    $updated_at = $sale->created_at;
-//                    $updated_at = Carbon::parse($sale->created_at);
+                    $updated_at = Carbon::parse($sale->created_at);
 //                    $updated_at = $updated_at->subHours(3);
                 }
 
                 $difference = $updated_at->diffForHumans($current_time);
                 $sale['diff_last_day'] = $difference;
+                $sale->created_at = $sale->created_at->addHours(3);
 
             }
 
