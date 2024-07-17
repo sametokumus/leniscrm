@@ -276,7 +276,7 @@ async function initNewOfferDetail(){
         let item = '<tr>';
 
         item += '   <td class="bg-dark-100">' + checkNull(product.sequence) + '</td>\n' +
-        '           <td class="bg-dark-100" style="border-right-width: 5px; border-right-color: rgba(0, 0, 0, 0.6); max-width: 200px;">' + checkNull(product.product_name) + '</td>\n';
+        '           <td class="bg-dark-100" style="border-right-width: 5px; border-right-color: rgba(0, 0, 0, 0.6); max-width: 500px; overflow: hidden;">' + checkNull(product.product_name) + '</td>\n';
 
         $.each(product.companies, function (i, company) {
             if (company.offer_product == null){
