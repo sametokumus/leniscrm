@@ -106,7 +106,9 @@ async function initSaleStats(sale_id){
     if (sale.request.company_employee != null) {
         $('#customer-employee').text('Müşteri Yetkilisi: ' + sale.request.company_employee.name);
     }
-    $('#owner-employee').text('Firma Yetkilisi: '+sale.request.authorized_personnel.name+' '+sale.request.authorized_personnel.surname);
+    if (sale.request.authorized_personnel != null) {
+        $('#owner-employee').text('Firma Yetkilisi: '+sale.request.authorized_personnel.name+' '+sale.request.authorized_personnel.surname);
+    }
 
     $('#total-price').text(changeCommasToDecimal(sale.total_price) + ' ' + sale.currency);
     $('#advance-price').text('Avans Tutarı: ' + changeCommasToDecimal(sale.advance_price) + ' ' + sale.currency);
