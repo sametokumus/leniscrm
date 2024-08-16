@@ -3684,7 +3684,8 @@ class PdfController extends Controller
             $pdf->SetXY($x, $y);
             $i = 1;
             foreach ($sale_offers as $sale_offer) {
-                if ($lang == 'tr'){
+
+                if (App::getLocale() == 'tr'){
                     $measurement_name = $sale_offer->measurement_name_tr;
                 }else{
                     $measurement_name = $sale_offer->measurement_name_en;
@@ -3707,7 +3708,7 @@ class PdfController extends Controller
                 $total_y = $pdf->getY() + $row_height;
                 if ($total_y > 249){
                     $pdf->AddPage();
-                    $pdf->SetXY(100, 10);
+                    $pdf->SetXY(50, 10);
                     $y = 10;
                     $old_y = $pdf->getY();
                 }
@@ -3721,7 +3722,6 @@ class PdfController extends Controller
                 }else{
                     $row_height = $new_y - 20;
                 }
-
 
 
                 $x = 10;
