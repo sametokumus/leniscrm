@@ -57,6 +57,13 @@ function changeDashStaff(){
     getPotentialMonthlySales(dash_staff);
     getCancelledMonthlySales(dash_staff);
 }
+function changeDashMY(){
+    dash_staff = document.getElementById('dash_staff').value;
+    dash_month = document.getElementById('dash_month').value;
+    dash_year = document.getElementById('dash_year').value;
+
+    initStaffStats(dash_staff, dash_month, dash_year);
+}
 
 async function initAdmin(user_id){
     let data = await serviceGetAdminById(user_id);
@@ -826,7 +833,7 @@ async function markAsRead(notify_id){
 
 async function initStaffStats(user_id, month, year){
 
-    let data = await serviceGetStaffStatistics(user_id, month, year);
+    let data = await serviceGetStaffStatisticsWMY(user_id, month, year);
 
     $('#stat-1').html(data.total_company_count);
     $('#stat-2').html(data.add_this_month_company);
@@ -835,7 +842,7 @@ async function initStaffStats(user_id, month, year){
     $('#stat-5').html(data.sale_this_month);
     $('#stat-6').html('');
 
-    let data2 = await serviceGetStaffSituation(user_id, month, year);
+    let data2 = await serviceGetStaffSituationWMY(user_id, month, year);
 
     $('#stat-6').html(data2.position + '. (' + data2.staff.staff_rate + ')');
 

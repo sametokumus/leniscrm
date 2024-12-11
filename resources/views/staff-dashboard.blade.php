@@ -21,7 +21,7 @@ $extra_js='
                         </select>
                     </div>
                     <div class="col-3">
-                        <select class="form-control" id="dash_month" onchange="changeDashStaff();">
+                        <select class="form-control" id="dash_month" onchange="changeDashMY();">
                             <option value="1" <?php echo (date('n') == 1) ? 'selected' : ''; ?>>Ocak</option>
                             <option value="2" <?php echo (date('n') == 2) ? 'selected' : ''; ?>>Şubat</option>
                             <option value="3" <?php echo (date('n') == 3) ? 'selected' : ''; ?>>Mart</option>
@@ -38,7 +38,7 @@ $extra_js='
 
                     </div>
                     <div class="col-3">
-                        <select class="form-control" id="dash_year" onchange="changeDashStaff();">
+                        <select class="form-control" id="dash_year" onchange="changeDashMY();">
                             <option value="2023" <?php echo (date('Y') == 2023) ? 'selected' : ''; ?>>2023</option>
                             <option value="2024" <?php echo (date('Y') == 2024) ? 'selected' : ''; ?>>2024</option>
                         </select>

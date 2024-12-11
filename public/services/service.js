@@ -3162,7 +3162,15 @@ async function serviceGetGenerateSaleSummaryPDF(sale_id) {
 }
 
 
-async function serviceGetStaffStatistics(id, m, y) {
+async function serviceGetStaffStatistics(id) {
+    const data = await fetchDataGet('/admin/staff/getStaffStatistics/' + id, 'application/json');
+    if (data.status == "success") {
+        return data.object;
+    } else {
+        showAlert('İstek Başarısız.');
+    }
+}
+async function serviceGetStaffStatisticsWMY(id, m, y) {
     const data = await fetchDataGet('/admin/staff/getStaffStatisticsWMY/' + id + '/' + m + '/' + y, 'application/json');
     if (data.status == "success") {
         return data.object;
@@ -3171,7 +3179,16 @@ async function serviceGetStaffStatistics(id, m, y) {
     }
 }
 
-async function serviceGetStaffSituation(id, m, y) {
+async function serviceGetStaffSituation(id) {
+    const data = await fetchDataGet('/admin/staff/getStaffSituation/' + id, 'application/json');
+    if (data.status == "success") {
+        return data.object;
+    } else {
+        showAlert('İstek Başarısız.');
+    }
+}
+
+async function serviceGetStaffSituationWMY(id, m, y) {
     const data = await fetchDataGet('/admin/staff/getStaffSituationWMY/' + id + '/' + m + '/' + y, 'application/json');
     if (data.status == "success") {
         return data.object;
