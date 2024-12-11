@@ -10,6 +10,8 @@
 		checkLogin();
         staff_dash_currency = 'TRY';
         let user_id = getPathVariable('staff-dashboard');
+        let month = document.getElementById('dash_month').value;
+        let year = document.getElementById('dash_year').value;
 
         await getAdminsAddSelectId('dash_staff');
 
@@ -21,7 +23,7 @@
             initStaffTargets(user_id);
             initStaffNotifies(user_id);
             initStaffCompanies(user_id);
-            initStaffStats(user_id);
+            initStaffStats(user_id, month,year);
             getLastMonthSales(user_id);
             getApprovedMonthlySales(user_id);
             getCompletedMonthlySales(user_id);
