@@ -254,14 +254,18 @@ class StaffHelper
 
 
     //calculated staff data
-    public static function get_staff_data($staff)
+    public static function get_staff_data($staff, $month, $year)
     {
         $data = array();
         $data['staff'] = $staff;
 
+
+        $startOfMonth = \Carbon\Carbon::createFromDate($year, $month, 1)->startOfMonth();
+        $endOfMonth = \Carbon\Carbon::createFromDate($year, $month, 1)->endOfMonth();
+
         //Sipariş/Teklif Oranı
         $request_count = OfferRequest::query()->where('authorized_personnel_id', $staff->id)
-            ->whereBetween('created_at', [now()->startOfMonth(), now()->endOfMonth()])
+            ->whereBetween('created_at', [$startOfMonth, $endOfMonth])
             ->count();
 
 //        $sale_count = Sale::query()
@@ -281,7 +285,7 @@ class StaffHelper
             ->where('offer_requests.authorized_personnel_id', $staff->id)
             ->where('s.active', '=', 1)
             ->whereRaw("(statuses.period = 'completed' OR statuses.period = 'approved')")
-            ->whereBetween('sh.created_at', [now()->startOfMonth(), now()->endOfMonth()])
+            ->whereBetween('sh.created_at', [$startOfMonth, $endOfMonth])
             ->count();
 
 
@@ -300,7 +304,7 @@ class StaffHelper
             ->where('offer_requests.authorized_personnel_id', $staff->id)
             ->where('s.active', '=', 1)
             ->whereRaw("(statuses.period = 'completed' OR statuses.period = 'approved')")
-            ->whereBetween('sh.created_at', [now()->startOfMonth(), now()->endOfMonth()])
+            ->whereBetween('sh.created_at', [$startOfMonth, $endOfMonth])
             ->get();
 
         $sale = array();
@@ -414,7 +418,7 @@ class StaffHelper
             ->where('offer_requests.authorized_personnel_id', $staff->id)
             ->where('s.active', '=', 1)
             ->whereRaw("(statuses.period = 'completed' OR statuses.period = 'approved')")
-            ->whereBetween('sh.created_at', [now()->startOfMonth(), now()->endOfMonth()])
+            ->whereBetween('sh.created_at', [$startOfMonth, $endOfMonth])
             ->groupBy('s.customer_id')
             ->get();
 
@@ -435,7 +439,7 @@ class StaffHelper
             ->where('activity_types.face_to_face', 1)
             ->where('activities.user_id', $staff->id)
             ->where('activities.active', 1)
-            ->whereBetween('activities.start', [now()->startOfMonth(), now()->endOfMonth()])
+            ->whereBetween('activities.start', [$startOfMonth, $endOfMonth])
             ->count();
 
 
@@ -446,7 +450,7 @@ class StaffHelper
             ->leftJoin('offer_requests', 'offer_requests.request_id', '=', 'sales.request_id')
             ->where('sales.type_id', 2)
             ->where('offer_requests.authorized_personnel_id', $staff->id)
-            ->whereBetween('sales.created_at', [now()->startOfMonth(), now()->endOfMonth()])
+            ->whereBetween('sales.created_at', [$startOfMonth, $endOfMonth])
             ->count();
 
 
@@ -488,7 +492,7 @@ class StaffHelper
             ->where('active', 1)
             ->where('user_id', $staff->id)
             ->where('is_customer', 1)
-            ->whereBetween('created_at', [now()->startOfMonth(), now()->endOfMonth()])
+            ->whereBetween('created_at', [$startOfMonth, $endOfMonth])
             ->count();
 
 

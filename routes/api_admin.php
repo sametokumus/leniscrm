@@ -460,6 +460,7 @@ Route::middleware(['auth:sanctum', 'type.admin'])->group(function (){
     Route::get('staff/getStaffStatistics/{staff_id}', [StaffController::class, 'getStaffStatistics']);
     Route::get('staff/getStaffStatisticsWMY/{staff_id}/{month}/{year}', [StaffController::class, 'getStaffStatisticsWMY']);
     Route::get('staff/getStaffSituation/{staff_id}', [StaffController::class, 'getStaffSituation']);
+    Route::get('staff/getStaffSituationWMY/{staff_id}/{month}/{year}', [StaffController::class, 'getStaffSituationWMY']);
     Route::get('staff/getAllStaffStatistics', [StaffController::class, 'getAllStaffStatistics']);
     Route::get('staff/getAllStaffStatisticsMonthly', [StaffController::class, 'getAllStaffStatisticsMonthly']);
 

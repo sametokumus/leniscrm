@@ -3172,7 +3172,7 @@ async function serviceGetStaffStatistics(id, m, y) {
 }
 
 async function serviceGetStaffSituation(id) {
-    const data = await fetchDataGet('/admin/staff/getStaffSituation/' + id, 'application/json');
+    const data = await fetchDataGet('/admin/staff/getStaffSituationWMY/' + id, 'application/json');
     if (data.status == "success") {
         return data.object;
     } else {

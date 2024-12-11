@@ -393,6 +393,40 @@ class StaffController extends Controller
             return  response(['message' => __('Hatalı işlem.'),'status' => 'error-001','ar' => $throwable->getMessage()]);
         }
     }
+    public function getStaffSituationWMY($staff_id, $month, $year){
+        try {
+
+            $all_staffs = Admin::query()->where('active', 1)->get();
+            $staffs = array();
+
+            foreach ($all_staffs as $staff){
+                $data = StaffHelper::get_staff_data($staff, $month, $year);
+
+                array_push($staffs, $data);
+            }
+
+            usort($staffs, function ($a, $b) {
+                return $b['staff_rate'] <=> $a['staff_rate'];
+            });
+
+            $position = 0;
+            $staff;
+            foreach ($staffs as $index => $item) {
+                if ($item['staff']['id'] == $staff_id) {
+                    $position = $index + 1;
+                    $staff = $item;
+                }
+            }
+
+            return response(['message' => __('İşlem başarılı.'), 'status' => 'success', 'object' => ['staff' => $staff, 'position' => $position, 'staffs' => $staffs]]);
+        } catch (ValidationException $validationException) {
+            return  response(['message' => __('Lütfen girdiğiniz bilgileri kontrol ediniz.'),'status' => 'validation-001']);
+        } catch (QueryException $queryException) {
+            return  response(['message' => __('Hatalı sorgu.'),'status' => 'query-001', 'message' => $queryException->getMessage()]);
+        } catch (\Throwable $throwable) {
+            return  response(['message' => __('Hatalı işlem.'),'status' => 'error-001','ar' => $throwable->getMessage()]);
+        }
+    }
 
     public function getAllStaffStatistics(){
         try {
