@@ -152,6 +152,8 @@ class AccountingController extends Controller
                 ->leftJoin('packing_lists', 'packing_lists.packing_list_id', '=', 'sale_transactions.packing_list_id')
                 ->where('sale_transaction_payments.payment_status_id', 1)
                 ->where('packing_lists.active', 1)
+                ->where('sale_transactions.active', 1)
+                ->where('sale_transaction_payments.active', 1)
                 ->groupBy('packing_lists.sale_id')
                 ->get();
 
