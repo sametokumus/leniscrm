@@ -1179,6 +1179,7 @@ class DashboardController extends Controller
                 $try_price = 0;
                 $usd_price = 0;
                 $eur_price = 0;
+                $gbp_price = 0;
 
                 foreach ($sale_items as $item){
 
