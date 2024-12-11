@@ -827,6 +827,7 @@ async function initStaffStats(user_id){
     $('#stat-3').html(data.activity_this_month);
     $('#stat-4').html(data.request_this_month);
     $('#stat-5').html(data.sale_this_month);
+    $('#stat-6').html('');
 
     let data2 = await serviceGetStaffSituation(user_id);
 

@@ -16,9 +16,33 @@ $extra_js='
             <div class="card-body p-3">
 
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                         <select class="form-control" id="dash_staff" onchange="changeDashStaff();">
                         </select>
+                    </div>
+                    <div class="col-3">
+                        <select class="form-control" id="dash_month" onchange="changeDashStaff();">
+                            <option value="1" <?php echo (date('n') == 1) ? 'selected' : ''; ?>>Ocak</option>
+                            <option value="2" <?php echo (date('n') == 2) ? 'selected' : ''; ?>>Şubat</option>
+                            <option value="3" <?php echo (date('n') == 3) ? 'selected' : ''; ?>>Mart</option>
+                            <option value="4" <?php echo (date('n') == 4) ? 'selected' : ''; ?>>Nisan</option>
+                            <option value="5" <?php echo (date('n') == 5) ? 'selected' : ''; ?>>Mayıs</option>
+                            <option value="6" <?php echo (date('n') == 6) ? 'selected' : ''; ?>>Haziran</option>
+                            <option value="7" <?php echo (date('n') == 7) ? 'selected' : ''; ?>>Temmuz</option>
+                            <option value="8" <?php echo (date('n') == 8) ? 'selected' : ''; ?>>Ağustos</option>
+                            <option value="9" <?php echo (date('n') == 9) ? 'selected' : ''; ?>>Eylül</option>
+                            <option value="10" <?php echo (date('n') == 10) ? 'selected' : ''; ?>>Ekim</option>
+                            <option value="11" <?php echo (date('n') == 11) ? 'selected' : ''; ?>>Kasım</option>
+                            <option value="12" <?php echo (date('n') == 12) ? 'selected' : ''; ?>>Aralık</option>
+                        </select>
+
+                    </div>
+                    <div class="col-3">
+                        <select class="form-control" id="dash_year" onchange="changeDashStaff();">
+                            <option value="2023" <?php echo (date('Y') == 2023) ? 'selected' : ''; ?>>2023</option>
+                            <option value="2024" <?php echo (date('Y') == 2024) ? 'selected' : ''; ?>>2024</option>
+                        </select>
+
                     </div>
                 </div>
 
