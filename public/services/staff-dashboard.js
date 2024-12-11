@@ -824,7 +824,7 @@ async function markAsRead(notify_id){
 
 async function initStaffStats(user_id, month, year){
 
-    let data = await serviceGetStaffStatistics(user_id);
+    let data = await serviceGetStaffStatistics(user_id, month, year);
 
     $('#stat-1').html(data.total_company_count);
     $('#stat-2').html(data.add_this_month_company);
