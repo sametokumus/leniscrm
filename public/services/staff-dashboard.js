@@ -37,14 +37,18 @@
 })(window.jQuery);
 let staff_dash_currency;
 let dash_staff;
+let dash_month;
+let dash_year;
 function changeDashStaff(){
     dash_staff = document.getElementById('dash_staff').value;
+    dash_month = document.getElementById('dash_month').value;
+    dash_year = document.getElementById('dash_year').value;
 
     initAdmin(dash_staff);
     initStaffTargets(dash_staff);
     initStaffNotifies(dash_staff);
     initStaffCompanies(dash_staff);
-    initStaffStats(dash_staff);
+    initStaffStats(dash_staff, dash_month, dash_year);
     getLastMonthSales(dash_staff);
     getApprovedMonthlySales(dash_staff);
     getCompletedMonthlySales(dash_staff);
@@ -818,7 +822,7 @@ async function markAsRead(notify_id){
     $('#dash-notify-'+notify_id+ ' div.text-right').remove();
 }
 
-async function initStaffStats(user_id){
+async function initStaffStats(user_id, month, year){
 
     let data = await serviceGetStaffStatistics(user_id);
 

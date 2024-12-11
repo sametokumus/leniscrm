@@ -3162,8 +3162,8 @@ async function serviceGetGenerateSaleSummaryPDF(sale_id) {
 }
 
 
-async function serviceGetStaffStatistics(id) {
-    const data = await fetchDataGet('/admin/staff/getStaffStatistics/' + id, 'application/json');
+async function serviceGetStaffStatistics(id, m, y) {
+    const data = await fetchDataGet('/admin/staff/getStaffStatisticsWMY/' + id + '/' + m + '/' + y, 'application/json');
     if (data.status == "success") {
         return data.object;
     } else {

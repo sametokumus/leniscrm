@@ -296,6 +296,69 @@ class StaffController extends Controller
         }
     }
 
+    public function getStaffStatisticsWMY($staff_id, $month, $year){
+        try {
+
+            $total_company_count = Company::query()
+                ->where('active', 1)
+                ->where('is_customer', 1)
+                ->where('user_id', $staff_id)
+                ->count();
+
+            $now = Carbon::now();
+
+            $add_this_month_company = Company::query()
+                ->where('active', 1)
+                ->where('user_id', $staff_id)
+                ->whereMonth('created_at', $month)
+                ->whereYear('created_at', $year)
+                ->count();
+
+            $activity_this_month = Activity::query()
+                ->where('active', 1)
+                ->where('user_id', $staff_id)
+                ->whereMonth('start', $month)
+                ->whereYear('start', $year)
+                ->count();
+
+            $request_this_month = OfferRequest::query()
+                ->where('active', 1)
+                ->where('authorized_personnel_id', $staff_id)
+                ->whereMonth('created_at', $month)
+                ->whereYear('created_at', $year)
+                ->count();
+
+            $sale_this_month = DB::table('sales AS s')
+                ->select('s.*', 'sh.status_id AS last_status', 'sh.created_at AS last_status_created_at')
+                ->addSelect(DB::raw('YEAR(sh.created_at) AS year, MONTH(sh.created_at) AS month'))
+                ->leftJoin('statuses', 'statuses.id', '=', 's.status_id')
+                ->leftJoin('offer_requests', 'offer_requests.request_id', '=', 's.request_id')
+                ->join('status_histories AS sh', function ($join) {
+                    $join->on('s.sale_id', '=', 'sh.sale_id')
+                        ->where('sh.created_at', '=', DB::raw('(SELECT MAX(created_at) FROM status_histories WHERE sale_id = s.sale_id AND status_id = 7)'));
+                })
+                ->where('s.active', '=', 1)
+                ->where('offer_requests.authorized_personnel_id', '=', $staff_id)
+                ->whereMonth('sh.created_at', $month)
+                ->whereYear('sh.created_at', $year)
+                ->count();
+
+            return response(['message' => __('İşlem başarılı.'), 'status' => 'success', 'object' => [
+                'total_company_count' => $total_company_count,
+                'add_this_month_company' => $add_this_month_company,
+                'activity_this_month' => $activity_this_month,
+                'request_this_month' => $request_this_month,
+                'sale_this_month' => $sale_this_month
+            ]]);
+        } catch (ValidationException $validationException) {
+            return  response(['message' => __('Lütfen girdiğiniz bilgileri kontrol ediniz.'),'status' => 'validation-001']);
+        } catch (QueryException $queryException) {
+            return  response(['message' => __('Hatalı sorgu.'),'status' => 'query-001', 'message' => $queryException->getMessage()]);
+        } catch (\Throwable $throwable) {
+            return  response(['message' => __('Hatalı işlem.'),'status' => 'error-001','ar' => $throwable->getMessage()]);
+        }
+    }
+
     public function getStaffSituation($staff_id){
         try {
 
