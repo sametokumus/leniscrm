@@ -1155,6 +1155,7 @@ class DashboardController extends Controller
             $try_total = 0;
             $usd_total = 0;
             $eur_total = 0;
+            $gbp_total = 0;
             foreach ($last_months as $last_month){
 
                 $sale_items = DB::table('sales AS s')
