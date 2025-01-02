@@ -871,7 +871,7 @@ async function getCancelledMonthlySales(){
 
 async function getAdminsSales(){
 
-    let data = await serviceGetMonthlyApprovedSalesLastTwelveMonthsByAdmins(dash_owner);
+    let data = await serviceGetMonthlyApprovedSalesThisYearByAdmins(dash_owner);
     let admins = data.admins;
     admins.sort((a, b) => parseFloat(b.total_sales.try_total) - parseFloat(a.total_sales.try_total));
 

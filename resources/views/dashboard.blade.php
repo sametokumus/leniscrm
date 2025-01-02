@@ -993,7 +993,7 @@ $extra_js='
                 <div class="card-body fixed-table-card">
 
                     <div class="d-flex fw-bold small mb-3">
-                        <span class="flex-grow-1">EKİP SATIŞLARI (Son 12 Ay)</span>
+                        <span class="flex-grow-1">EKİP SATIŞLARI (Bu Yıl)</span>
                         <a href="#" data-toggle="card-expand"
                            class="text-white text-muted text-decoration-none"><i class="bi bi-fullscreen"></i></a>
                     </div>

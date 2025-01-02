@@ -3023,6 +3023,15 @@ async function serviceGetMonthlyApprovedSalesLastTwelveMonthsByAdmins(dash_owner
     }
 }
 
+async function serviceGetMonthlyApprovedSalesThisYearByAdmins(dash_owner) {
+    const data = await fetchDataGet('/admin/dashboard/getMonthlyApprovedSalesThisYearByAdmins/' + dash_owner, 'application/json');
+    if (data.status == "success") {
+        return data.object;
+    } else {
+        showAlert('İstek Başarısız.');
+    }
+}
+
 async function serviceGetMonthlyApprovedSalesLastTwelveMonthsByAdminId(id) {
     const data = await fetchDataGet('/admin/dashboard/getMonthlyApprovedSalesLastTwelveMonthsByAdminId/'+ id, 'application/json');
     if (data.status == "success") {
