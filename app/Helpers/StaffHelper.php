@@ -13,6 +13,7 @@ use App\Models\Sale;
 use App\Models\SaleOffer;
 use App\Models\StaffPoint;
 use App\Models\CurrencyLog;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class StaffHelper
@@ -254,8 +255,12 @@ class StaffHelper
 
 
     //calculated staff data
-    public static function get_staff_data($staff, $month, $year)
+    public static function get_staff_data($staff, $month = null, $year = null)
     {
+        // Eğer month veya year null ise varsayılan değerleri ayarla
+        $month = $month ?? Carbon::now()->startOfMonth()->format('m');
+        $year = $year ?? Carbon::now()->startOfMonth()->format('Y');
+
         $data = array();
         $data['staff'] = $staff;
 
@@ -267,6 +272,11 @@ class StaffHelper
         $request_count = OfferRequest::query()->where('authorized_personnel_id', $staff->id)
             ->whereBetween('created_at', [$startOfMonth, $endOfMonth])
             ->count();
+
+//        $request_count = OfferRequest::query()->where('authorized_personnel_id', $staff->id)
+//            ->whereBetween('created_at', [now()->startOfMonth(), now()->endOfMonth()])
+//            ->count();
+
 
 //        $sale_count = Sale::query()
 //            ->leftJoin('offer_requests', 'offer_requests.request_id', '=', 'sales.request_id')
